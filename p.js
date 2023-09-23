@@ -101,7 +101,7 @@ async function fetchLatestOrdersForVolatileUSDT() {
           if (Math.abs(priceChangePercent) >= 5) {
             // Check if the trading pair is available on Binance Futures
             if (await isTradingPairAvailableOnFutures(symbol)) {
-              const orderBookUrl = `https://fapi.binance.com/fapi/v1/depth?symbol=${symbol}&limit=5`;
+              const orderBookUrl = `https://fapi.binance.com/fapi/v1/depth?symbol=${symbol}&limit=1`;
 
               // Initialize the map for the current trading pair
               if (!processedOrders.has(symbol)) {
