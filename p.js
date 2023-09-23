@@ -101,7 +101,7 @@ async function fetchLatestOrdersForVolatileUSDT() {
           if (Math.abs(priceChangePercent) >= 5) {
             // Check if the trading pair is available on Binance Futures
             if (await isTradingPairAvailableOnFutures(symbol)) {
-              const orderBookUrl = `https://fapi.binance.com/fapi/v1/depth?symbol=${symbol}&limit=2`;
+              const orderBookUrl = `https://fapi.binance.com/fapi/v1/depth?symbol=${symbol}&limit=5`;
 
               // Initialize the map for the current trading pair
               if (!processedOrders.has(symbol)) {
@@ -238,4 +238,4 @@ async function fetchLatestOrdersForVolatileUSDT() {
 }
 
 // Fetch and display the latest buy and sell orders for volatile USDT trading pairs every 10 seconds
-setInterval(fetchLatestOrdersForVolatileUSDT, 3000);
+setInterval(fetchLatestOrdersForVolatileUSDT, 5000);
